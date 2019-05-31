@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="559.0" prefWidth="692.0" style="-fx-background-color: white;" stylesheets="@style/orderform.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.pos.controller.PlaceOrderFormController">
+   <children>
+      <ImageView id="imgHome" fitHeight="53.0" fitWidth="55.0" layoutX="24.0" layoutY="22.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asset/home-icon.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="94.0" layoutY="33.0" text="Place Order">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <JFXButton id="btnNewOrder" layoutX="572.0" layoutY="33.0" onAction="#btnNewOrder_OnAction" prefHeight="35.0" prefWidth="99.0" text="+ New Order" />
+      <Label layoutX="24.0" layoutY="91.0" prefHeight="18.0" prefWidth="85.0" text="Order ID :" />
+      <Label layoutX="319.0" layoutY="91.0" prefHeight="18.0" prefWidth="85.0" text="Order Date :" />
+      <Label alignment="CENTER_RIGHT" layoutX="196.0" layoutY="135.0" text="Customer Name :" />
+      <Separator layoutX="24.0" layoutY="171.0" prefHeight="4.0" prefWidth="644.0" />
+      <Label fx:id="lblOrderID" layoutX="94.0" layoutY="91.0" prefHeight="19.0" prefWidth="204.0" styleClass="fixed-label" text="Label" />
+      <Label fx:id="lblCustomerName" layoutX="319.0" layoutY="127.0" prefHeight="35.0" prefWidth="348.0" styleClass="fixed-label" text="Label" />
+      <Label fx:id="lblOrderDate" layoutX="403.0" layoutY="91.0" prefHeight="19.0" prefWidth="264.0" styleClass="fixed-label" text="Label" />
+      <JFXComboBox fx:id="cmbCustomerId" onKeyPressed="#cmbCustomerID_OnKeyPressed" labelFloat="true" layoutX="24.0" layoutY="130.0" prefHeight="28.0" prefWidth="151.0" promptText="Select Customer ID" />
+      <JFXComboBox fx:id="cmbItemCode" onKeyPressed="#cmbItemCode_OnKeyPressed" labelFloat="true" layoutX="23.0" layoutY="197.0" prefHeight="28.0" prefWidth="151.0" promptText="Item Code" />
+      <Label layoutX="201.0" layoutY="202.0" text="Description :" />
+      <Label fx:id="lblDescription" layoutX="286.0" layoutY="202.0" prefHeight="19.0" prefWidth="173.0" styleClass="fixed-label" text="Label" />
+      <Label layoutX="474.0" layoutY="202.0" text="Unit Price :" />
+      <Label fx:id="lblUnitPrice" layoutX="551.0" layoutY="202.0" prefHeight="19.0" prefWidth="117.0" styleClass="fixed-label" text="Label" />
+      <Label layoutX="23.0" layoutY="240.0" text="Qty. on Hand :" />
+      <Label fx:id="lblQtyOnHand" layoutX="116.0" layoutY="235.0" prefHeight="28.0" prefWidth="53.0" styleClass="fixed-label" text="Label" />
+      <JFXTextField fx:id="txtQty" onAction="#txtQty_OnAction" labelFloat="true" layoutX="202.0" layoutY="235.0" promptText="Enter Qty." />
+      <JFXButton fx:id="btnAdd" layoutX="362.0" layoutY="235.0" onAction="#btnAdd_OnAction" prefHeight="28.0" prefWidth="66.0" text="Add" />
+      <TableView fx:id="tblOrderDetails" layoutX="23.0" layoutY="275.0" prefHeight="212.0" prefWidth="644.0">
+        <columns>
+          <TableColumn prefWidth="83.0" text="Item Code" />
+          <TableColumn prefWidth="211.0" text="Description" />
+            <TableColumn prefWidth="75.0" text="Qty." />
+            <TableColumn prefWidth="96.0" text="Unit Price" />
+            <TableColumn prefWidth="75.0" text="Total" />
+            <TableColumn prefWidth="75.0" text="Column X" />
+        </columns>
+      </TableView>
+      <Label layoutX="24.0" layoutY="501.0" text="Total :">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTotal" layoutX="100.0" layoutY="501.0" prefHeight="36.0" prefWidth="129.0" styleClass="fixed-label" text="Label">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="553.0" layoutY="503.0" onAction="#btnPlaceOrder_OnAction" prefHeight="35.0" prefWidth="117.0" style="-fx-background-color: green; -fx-text-fill: white;" text="Place Order" />
+   </children>
+</AnchorPane>
